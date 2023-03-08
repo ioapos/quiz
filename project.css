@@ -1,0 +1,32 @@
+:root {
+  background-color: rgb(230, 222, 198);
+  font-size: 200%;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: cursive, sans-serif;
+  margin: 1;
+  padding: 0;
+  color: black;
+}
+h1 {
+  color: rgb(2, 42, 27);
+  font-size: large;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+a {
+  color: brown;
+}
+.erotimatologio {
+  font-size: larger;
+  text-align: center;
+}
+#home {
+  text-align: center;
+}
+.quiz_body {
+  font-size: large;
+  font-weight: 200;
+}
