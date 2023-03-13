@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="gr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <link rel="stylesheet" href="project.css" />
+    <title>ΑΠΟΤΕΛΕΣΜΑΤΑ</title>
+  </head>
+  <body>
+    <h1 class="finalResult">ΑΠΟΤΕΛΕΣΜΑΤΑ</h1>
+
+    <!-- <div id="quiz"></div>
+      <div id="btnAgain"></div>
+
+       -->
+
+    <div id="result" class="flex-center flex-column"></div>
+    <button id="myButton">ἐπανάληψις</button>
+    <script text="text/javascript">
+      document.getElementById("myButton").onclick = function () {
+        location.href = "quiz.html";
+      };
+      // we are using window location search as defined on the javascript api
+      // https://developer.mozilla.org/en-US/docs/Web/API/Location/search
+      //εἰς οἱαδήποτε διεύθυνσιν βλ ἂνωθι ὁθόνης μετἀ τοῦ εἰκονιζομένου ? συμπληρῶ ὂνομα(ἀλφαβητικαὶ χαρακτήραι) ἐπἰ τιμῇ ἱνα μεταφέρωσι πληροφορείαι εἰς τὀν ἐξυπηρετητήν
+      /* const apotelesmat =[{
+          name: "Ζωή Λάσκαρη",
+          url: "https://m.media-amazon.com/images/M/MV5BM2M3MzUyNzMtYzVmOS00NjgwLTgyYjUtODI3MzI0ZmQ5NDBkXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_FMjpg_UX1000_.jpg"
+        },
+      {
+
+      }];*/
+
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString); // ἐνσωματωμένη λειτουργία  js  ἢτοι κλᾶσις ἀντικειμένου
+      const resultId = urlParams.get("id"); // οἰοδήποτε μετἀ τοῦ ?
+
+      switch (resultId) {
+        case "0":
+          displayActress(
+            "Ζωή",
+            "https://m.media-amazon.com/images/M/MV5BM2M3MzUyNzMtYzVmOS00NjgwLTgyYjUtODI3MzI0ZmQ5NDBkXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_FMjpg_UX1000_.jpg",
+            "iwkwoegwp"
+          );
+          break;
+        case "1":
+          displayActress(
+            "Αλίκη",
+            "https://www.mixanitouxronou.gr/wp-content/uploads/2017/07/vougiouklaki.jpg",
+            "iueueuiiuieiiu"
+          );
+          break;
+        case "2":
+          displayActress(
+            "Ελενα",
+            "https://www.in.gr/wp-content/uploads/2021/04/elenanathanail-.jpg",
+            "kjejfjrnedfjrfnreff"
+          );
+          break;
+        case "3":
+          displayActress(
+            "Τζένη",
+            "https://www.in.gr/wp-content/uploads/2020/11/%CE%BA%CE%B1%CF%81%CE%B5%CE%B6%CE%B7.jpg",
+            "yyyyyyyyyyy"
+          );
+          break;
+        case "4":
+          displayActress(
+            "Μάρθα",
+            "https://i2.prth.gr/files/2013/11/15/karag2.jpg",
+            // "https://i1.prth.gr/images/963x541/files/2022-09-20/martha_karagiannh57837.jpg",
+            // "https://i.pinimg.com/474x/d2/85/a9/d285a96661debc7235387f0b92dbc253.jpg ",
+            "jduuuuuuiuuuu"
+          );
+
+          break;
+        default:
+          console.log("default case");
+        // code block
+      }
+
+      function displayActress(name, url, description) {
+        const resultelement = document.getElementById("result");
+        resultelement.innerHTML = `<img src="${url}"
+            alt="1"
+          />
+          <p id="martha">Είσαι η ${name}</p>
+          <p>${description}</p>`;
+      }
+
+      //function repeat(title, repeat) {
+      //const again = document.getElementById("btnAgain");
+      //console.log(again);
+      // again.innerHTML = `
+      // <a class="btn" href=" quiz.html" >${repeat}</a>`;
+      //}
+
+      // repeat("ΑΠΟΤΕΛΕΣΜΑΤΑ", "EΠΑΝΑΛΗΨΙΣ");
+      /* TODO: χρησιμοποιησε το name και το url και τοποθέτησε τα
+          Μέσα στα αντίστοιχα elements προς προβολή για τον χρήστη */
+    </script>
+    <!-- <script src="project.js"></script> -->
+  </body>
+</html>

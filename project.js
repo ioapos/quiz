@@ -2,7 +2,7 @@ let questions = [
   {
     id: 1,
     question: "Κατά γενική ομολογία θεωρείστε",
-    url: "https://i.pinimg.com/originals/f2/a6/0e/f2a60e2cf3686043baf3b2c663a52ebc.jpg",
+    url: "https://antikatapliktika.files.wordpress.com/2019/03/25755_383209023430_269916953430_3720656_2301133_n-e1295972280792-1.jpeg",
     options: [
       "1  Mοιραία",
       "2  Χαριτωμένη",
@@ -50,7 +50,7 @@ let questions = [
   {
     id: 5,
     question: "Σάς αρέσει να",
-    url: "https://i0.wp.com/voliotaki.gr/wordpress/wp-content/uploads/2022/07/3257290.jpg?fit=770%2C433&ssl=1",
+    url: "https://www.filmy.gr/wp-content/uploads/2019/11/Alice-in-the-Navy-12.jpg",
     options: [
       "1 Δημιουργείτε κοσμήματα",
       "2 Μαγειρεύετε για φίλους",
@@ -84,6 +84,7 @@ let question_count = 0;
 //   toggleActive();
 // }
 
+// With this funtion we loop over the option which ist the class name of each list -> of each option of the questions.options[i]
 function toggleActive() {
   let option = document.querySelectorAll("li.option");
   option.forEach(option => {
@@ -95,7 +96,8 @@ function toggleActive() {
     // })
   });
 }
-
+// a function that applys the questions+ the photos(url) in the html
+//Basically we fill the questions array with the html
 applyQuestions = function (q1, q2, q3, q4, q5, url) {
   const options = document.getElementById("quiz-body");
 
@@ -111,20 +113,27 @@ applyQuestions = function (q1, q2, q3, q4, q5, url) {
   `;
 };
 
+// each question is the option value of the questions array.
+//This function (apply options) just "calls" the applyQuestions function, and we see the five different questions of the quiz
 applyOptions = function (option, url) {
   applyQuestions(option[0], option[1], option[2], option[3], option[4], url);
 };
 
+// with this function we apply the h4 html
 applyQuestion = function (q) {
   const question = document.getElementById("quiz-user");
   question.innerHTML = `<h4>${q}</h4>`;
 };
 
+// we start from index 0 and we call the above functions
 let questionIndex = 0;
 applyOptions(questions[0].options, questions[0].url);
 applyQuestion(questions[0].question);
 
+// this is the click function in our buttons so as we can click the question we want from the quiz,
+// In order to work we multiply the question index and we call the functions above in order to see and click the answer we want
 function next() {
+  //let answerNotclicked = questionIndex.
   questionIndex++;
   applyOptions(questions[questionIndex].options, questions[questionIndex].url);
   applyQuestion(questions[questionIndex].question);
@@ -132,12 +141,15 @@ function next() {
   // btnNext.innerHTML = "ἐπατήθη";
 }
 
+// If all or the most questions from the array are clicked , aka if we played the quiz this this function will show
+// the result
 function nextanswer(nextAnswerButtonId) {
   if (questionIndex === questions.length - 1) {
     console.log("τέλος");
     console.log(answers);
 
     let mostAnswered = indexOfMax(answers);
+
     // if (mostAnswered == answers)
     window.location.replace(`/apotel.html?id=${mostAnswered}`);
     // if (mostAnswered === answers[0]) {
@@ -147,7 +159,7 @@ function nextanswer(nextAnswerButtonId) {
   answers[nextAnswerButtonId]++;
   questionIndex++;
 
-  applyOptions(questions[questionIndex].options);
+  applyOptions(questions[questionIndex].options, questions[questionIndex].url);
   applyQuestion(questions[questionIndex].question);
 }
 //showResult = function () {

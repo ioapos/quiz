@@ -30,3 +30,14 @@ a {
   font-size: large;
   font-weight: 200;
 }
+
+.text-center {
+  text-overflow: clip;
+}
+#myButton {
+  background-color: rgb(237, 232, 160);
+}
+.finalResult {
+  text-align: center;
+  color: rgb(164, 67, 67);
+}
