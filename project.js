@@ -26,7 +26,7 @@ let questions = [
   {
     id: 3,
     question: "Είστε καλή",
-    url: "https://www.alphafreepress.gr/wp-content/uploads/2021/11/karezi.jpg",
+    url: "https://www.patrisnews.com/wp-content/uploads/2016/07/tz7.jpg",
     options: [
       "1 Στίς πόζες",
       "2 Στο τραγούδι",
@@ -38,7 +38,7 @@ let questions = [
   {
     id: 4,
     question: "Αἱ κρυφαὶ χάραι ὑμῶν εἰσὶν",
-    url: "https://www.tovima.gr/wp-content/uploads/2022/09/18/martha_k-1024x614.jpg",
+    url: "https://i1.prth.gr/images/1168x656/files/2022-09-20/martha_karagiannh57837.jpg",
     options: [
       "1 Προσήνια καἰ ειλικρίνεια,",
       "2 Εύστροφία καὶ ἐπιχειρηματικὸν δαιμόνιον",
