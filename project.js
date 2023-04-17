@@ -30,33 +30,33 @@ let questions = [
     options: [
       "1 Στίς πόζες",
       "2 Στο τραγούδι",
-      "3 Στο λέγειν",
-      "4 Στο ντύσιμο",
+      "3 Στο ντύσιμο",
+      "4 Στο λέγειν",
       "5 Στον χορό",
     ],
   },
   {
     id: 4,
-    question: "Αἱ κρυφαὶ χάραι ὑμῶν εἰσὶν",
+    question: "Οί κρυφές σας χάρες είναι",
     url: "https://i1.prth.gr/images/1168x656/files/2022-09-20/martha_karagiannh57837.jpg",
     options: [
-      "1 Προσήνια καἰ ειλικρίνεια,",
-      "2 Εύστροφία καὶ ἐπιχειρηματικὸν δαιμόνιον",
-      "3 Ρομαντισμὸς και πείσμα",
-      "4 Εὐαισθησία, καταστάλαξη ευγένεια,",
-      "5 Δυναμισμὸς και καλοκαρδοσύνη",
+      "1 Προσήνια",
+      "2 Ευστροφία",
+      "3 Καταστάλαξη",
+      "4 Πείσμα",
+      "5 Δυναμισμός",
     ],
   },
   {
     id: 5,
-    question: "Σάς αρέσει να",
+    question: "Αγαπημένη ενασχόληση",
     url: "https://www.filmy.gr/wp-content/uploads/2019/11/Alice-in-the-Navy-12.jpg",
     options: [
-      "1 Δημιουργείτε κοσμήματα",
-      "2 Μαγειρεύετε για φίλους",
-      "3 Φροντίζετε τον κήπο σάς",
-      "4 Παίζετε τάβλι ",
-      "5 χαλαρώνετε στο σπίτι με ένα ζωάκι συντροφιά",
+      "1 Χειροποίητη δημιουργία (πχ κοσμήματα)",
+      "2 Πεζοπορία, ορειβασία",
+      "3 Ανάγνωση, ζωγραφική",
+      "4 Ενασχόληση με παιχνίδια πχ(τάβλι, χαρτιά)",
+      "5 Συλλογή βίνταζ αντικειμένων",
     ],
   },
 ];
@@ -64,7 +64,7 @@ let questions = [
 let answers = [0, 0, 0, 0, 0];
 
 let question_count = 0;
-
+console.log(answers);
 // window.onload = function () {
 //   show(question_count);
 // };
@@ -118,7 +118,7 @@ applyQuestions = function (q1, q2, q3, q4, q5, url) {
 applyOptions = function (option, url) {
   applyQuestions(option[0], option[1], option[2], option[3], option[4], url);
 };
-
+console.log(applyQuestions);
 // with this function we apply the h4 html
 applyQuestion = function (q) {
   const question = document.getElementById("quiz-user");

@@ -1,11 +1,11 @@
 :root {
-  background-color: rgb(230, 222, 198);
+  background-color: rgb(184, 160, 187);
   font-size: 200%;
 }
 
 * {
   box-sizing: border-box;
-  font-family: cursive, sans-serif;
+  font-family: cursive, italic;
   margin: 1;
   padding: 0;
   color: black;
