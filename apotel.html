@@ -16,29 +16,76 @@
     <title>ΑΠΟΤΕΛΕΣΜΑΤΑ</title>
   </head>
   <body>
-    <h1 class="finalResult">ΑΠΟΤΕΛΕΣΜΑΤΑ</h1>
+    <!-- region Navigation Bar -->
+    <nav
+      class="navbar navbar-light"
+      style="background-color: rgba(120, 0, 161, 0.61)"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="quiz-white.png"
+            alt=""
+            width="30"
+            height="30"
+            class="d-inline-block align-text-top"
+          />
+        </a>
 
-    <!-- <div id="quiz"></div>
-      <div id="btnAgain"></div>
+        <a class="navbar-brand d-flex" href="/">
+          <img
+            src="next-white.png"
+            alt=""
+            width="30"
+            height="30"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+      </div>
+    </nav>
+    <!-- endregion Navigation Bar -->
 
-       -->
+    <div class="container">
+      <div class="jumbotron mt-5">
+        <h1 class="display-4">Αποτελέσματα!</h1>
 
-    <div id="result" class="flex-center flex-column"></div>
-    <button id="myButton">επανάληψη</button>
+        <div id="image-placeholder" class="text-center"></div>
+
+        <!--                <div id="result" class="flex-center flex-column"></div>-->
+        <hr class="my-4 text-center" />
+        <h2>Είσαι η <span id="name-placeholder"></span>!</h2>
+        <hr class="my-4" />
+
+        <p id="description-placeholder"></p>
+
+        <div class="container mt-5">
+          <div class="d-flex justify-content-between">
+            <div>
+              <button id="myButton" class="btn btn-success">επανάληψη</button>
+            </div>
+            <div>
+              <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <!--            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>-->
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_twitter"></a>
+                <a class="a2a_button_facebook_messenger"></a>
+                <a class="a2a_button_telegram"></a>
+                <a class="a2a_button_whatsapp"></a>
+                <a class="a2a_button_viber"></a>
+                <a class="a2a_button_email"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+
     <script text="text/javascript">
       document.getElementById("myButton").onclick = function () {
         location.href = "quiz.html";
       };
-      // we are using window location search as defined on the javascript api
-      // https://developer.mozilla.org/en-US/docs/Web/API/Location/search
-      //εἰς οἱαδήποτε διεύθυνσιν βλ ἂνωθι ὁθόνης μετἀ τοῦ εἰκονιζομένου ? συμπληρῶ ὂνομα(ἀλφαβητικαὶ χαρακτήραι) ἐπἰ τιμῇ ἱνα μεταφέρωσι πληροφορείαι εἰς τὀν ἐξυπηρετητήν
-      /* const apotelesmat =[{
-          name: "Ζωή Λάσκαρη",
-          url: "https://m.media-amazon.com/images/M/MV5BM2M3MzUyNzMtYzVmOS00NjgwLTgyYjUtODI3MzI0ZmQ5NDBkXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_FMjpg_UX1000_.jpg"
-        },
-      {
-
-      }];*/
 
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString); // ἐνσωματωμένη λειτουργία  js  ἢτοι κλᾶσις ἀντικειμένου
@@ -89,10 +136,18 @@
       }
 
       function displayActress(name, url, description) {
-        const resultelement = document.getElementById("result");
-        resultelement.innerHTML = `<img src="${url}" width="700" alt="1"/>
-          <p id="martha">Είσαι η ${name}</p>
-          <p>${description}</p>`;
+        const imageElement = document.getElementById("image-placeholder");
+        imageElement.innerHTML = `
+                    <img src="${url}" style="width: 600px; height: 400px; object-fit: contain;" />
+                `;
+
+        const nameElement = document.getElementById("name-placeholder");
+        nameElement.innerText = name;
+
+        const descriptionElement = document.getElementById(
+          "description-placeholder"
+        );
+        descriptionElement.innerText = description;
       }
 
       //function repeat(title, repeat) {
@@ -104,7 +159,7 @@
 
       // repeat("ΑΠΟΤΕΛΕΣΜΑΤΑ", "EΠΑΝΑΛΗΨΙΣ");
       /* TODO: χρησιμοποιησε το name και το url και τοποθέτησε τα
-          Μέσα στα αντίστοιχα elements προς προβολή για τον χρήστη */
+                Μέσα στα αντίστοιχα elements προς προβολή για τον χρήστη */
     </script>
     <!-- <script src="project.js"></script> -->
   </body>

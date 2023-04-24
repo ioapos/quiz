@@ -8,7 +8,7 @@
 }*/
 html,
 body {
-  background-image: linear-gradient(to bottom, #967aa1, #aaa1c8);
+  background-image: linear-gradient(to bottom, #967aa1, #dbcbe1);
   height: 100%;
 }
 
@@ -60,20 +60,20 @@ a {
   gap: 10px;
   flex-direction: column;
 }
-button.option {
-  background-color: #f5e6e8;
-  border: 1px solid #bab6b6;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  width: 50%;
-  box-sizing: border-box;
-}
-button.option:hover {
-  background-color: #ccc;
-}
-.btn {
-  color: red;
-}
+/*button.option {*/
+/*  background-color: #f5e6e8;*/
+/*  border: 1px solid #bab6b6;*/
+/*  border-radius: 5px;*/
+/*  padding: 10px;*/
+/*  font-size: 16px;*/
+/*  cursor: pointer;*/
+/*  transition: background-color 0.2s ease-in-out;*/
+/*  width: 50%;*/
+/*  box-sizing: border-box;*/
+/*}*/
+/*button.option:hover {*/
+/*  background-color: #ccc;*/
+/*}*/
+/*.btn {*/
+/*  color: red;*/
+/*}*/

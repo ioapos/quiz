@@ -1,3 +1,5 @@
+// This is the dataset for all the questions. The dataset contains the id representing the index of the question in the array,
+// the question, and the options that the user can answer. This dataset could be received from an external api
 let questions = [
   {
     id: 1,
@@ -61,129 +63,43 @@ let questions = [
   },
 ];
 
-let answers = [0, 0, 0, 0, 0];
+// This is the potential answer options template. The individual answers populate the button text body
+let answerOptionsHtmlTemplate = (q1, q2, q3, q4, q5) => `
+  <div class= "d-grid gap-2">
+    <button class="btn btn-light" onclick="nextAnswer(0)">${q1}</button>
+    <button class="btn btn-light" onclick="nextAnswer(1)">${q2}</button>
+    <button class="btn btn-light" onclick="nextAnswer(2)">${q3}</button>
+    <button class="btn btn-light" onclick="nextAnswer(3)">${q4}</button>
+    <button class="btn btn-light" onclick="nextAnswer(4)">${q5}</button>
+  </div>
+`;
 
-let question_count = 0;
-console.log(answers);
-// window.onload = function () {
-//   show(question_count);
-// };
-
-// function show(count) {
-//   let question = document.getElementById("questions");
-//   let [first, second, third, fourth, fifth] = questions[count].options;
-//   question.innerHTML = `
-//   <h2>${count + 1}. ${questions[count].question}</h2>
-
-//     <ul class= "option_group">
-//     <li class="option">${first}</li>
-//     <li class="option">${second}</li>
-//     <li class="option">${third}</li>
-//     <li class="option">${fourth}</li>
-//     <li class="option">${fifth}</li> </ul>`;
-//   toggleActive();
-// }
-
-// With this funtion we loop over the option which ist the class name of each list -> of each option of the questions.options[i]
-function toggleActive() {
-  let option = document.querySelectorAll("li.option");
-  option.forEach(option => {
-    console.log(option);
-    option.length++;
-    // option[i].onclick(option => {
-    //     option.length++;
-    //     option[i].classList.contains("active")?option[i].classList.remove("active")
-    // })
-  });
-}
-// a function that applys the questions+ the photos(url) in the html
-//Basically we fill the questions array with the html
-applyQuestions = function (q1, q2, q3, q4, q5, url) {
-  const options = document.getElementById("quiz-body");
-
-  options.innerHTML = `
-    <img src="${url}" alt="${1}">
-  <div class= "option_group">
-    <div> <button class="option mt-1" data-number="1" onclick="nextanswer(0)">${q1}</button></div>
-    <div> <button class="option mt-1" onclick="nextanswer(1)">${q2}</button></div>
-      <div> <button class="option mt-1" onclick="nextanswer(2)">${q3}</button></div>
-      <div> <button class="option mt-1" onclick="nextanswer(3)">${q4}</button></div>
-      <div> <button class="option mt-1" onclick="nextanswer(4)">${q5}</button></div>
-   </div>
-  `;
-};
-
-// each question is the option value of the questions array.
-//This function (apply options) just "calls" the applyQuestions function, and we see the five different questions of the quiz
-applyOptions = function (option, url) {
-  applyQuestions(option[0], option[1], option[2], option[3], option[4], url);
-};
-console.log(applyQuestions);
-// with this function we apply the h4 html
-applyQuestion = function (q) {
-  const question = document.getElementById("quiz-user");
-  question.innerHTML = `<h4>${q}</h4>`;
-};
-
-applyPageIndex = function (n) {
-  const question = document.getElementById("page-index");
-  question.innerHTML = `${n}`;
-};
+let questionImageHtmlTemplate = url => `
+    <img src="${url}" alt="img" style="width: 600px; height: 400px; object-fit: contain;">
+`;
 
 // we start from index 0 and we call the above functions
 let questionIndex = 0;
-applyOptions(questions[0].options, questions[0].url);
-applyQuestion(questions[0].question);
 
-/*
-function previous() {
-  questionIndex--;
-  applyOptions(questions[questionIndex].options, questions[questionIndex].url);
-  applyQuestion(questions[questionIndex].question);
-  if (questionsArray === questions[0]) {
-    window.location.replace(`/quiz.html`);
-  }
-}
-*/
-// this is the click function in our buttons so as we can click the question we want from the quiz,
-// In order to work we multiply the question index and we call the functions above in order to see and click the answer we want
+// Players answers go here
+let answers = [0, 0, 0, 0, 0];
 
-/*function next() {
-  //let answerNotclicked = questionIndex.
-  questionIndex++;
-  applyOptions(questions[questionIndex].options, questions[questionIndex].url);
-  applyQuestion(questions[questionIndex].question);
-  // const btnNext = document.getElementById("btn-next");
-  // btnNext.innerHTML = "ἐπατήθη";
-}
-*/
+// We render the first index manually, in order to kickstart app
+renderByIndex(0);
+
 // If all or the most questions from the array are clicked , aka if we played the quiz this this function will show
 // the result
-function nextanswer(nextAnswerButtonId) {
+function nextAnswer(nextAnswerButtonId) {
   if (questionIndex === questions.length - 1) {
-    console.log("τέλος");
-    console.log(answers);
-
     let mostAnswered = indexOfMax(answers);
-
-    // if (mostAnswered == answers)
     window.location.replace(`/apotel.html?id=${mostAnswered}`);
-    // if (mostAnswered === answers[0]) {
-    // window.location.replace(`/apotel.html?id=${mostAnswered}`);
-    // }
   }
 
   answers[nextAnswerButtonId]++;
   questionIndex++;
 
-  applyOptions(questions[questionIndex].options, questions[questionIndex].url);
-  applyQuestion(questions[questionIndex].question);
-  applyPageIndex(questions[questionIndex].id);
+  renderByIndex(questionIndex);
 }
-//showResult = function () {
-
-//if (questionIndex > question.length && `${q2}` >= 3) id = "aliki";
-//};
 
 function indexOfMax(arr) {
   if (arr.length === 0) {
@@ -193,7 +109,7 @@ function indexOfMax(arr) {
   var max = arr[0];
   var maxIndex = 0;
 
-  for (var i = 1; i < arr.length; i++) {
+  for (let i = 1; i < arr.length; i++) {
     if (arr[i] > max) {
       maxIndex = i;
       max = arr[i];
@@ -202,5 +118,25 @@ function indexOfMax(arr) {
 
   return maxIndex;
 }
-indexOfMax(answers);
-// console.log(questions.url[0]);
+
+function renderByIndex(index) {
+  let questionData = questions[index];
+
+  let imageElement = document.getElementById("image-wrapper");
+  imageElement.innerHTML = questionImageHtmlTemplate(questionData.url);
+
+  let questionElement = document.getElementById("question-wrapper");
+  questionElement.innerText = questionData.question;
+
+  let optionsElement = document.getElementById("options-wrapper");
+  optionsElement.innerHTML = answerOptionsHtmlTemplate(
+    questionData.options[0],
+    questionData.options[1],
+    questionData.options[2],
+    questionData.options[3],
+    questionData.options[4]
+  );
+
+  const question = document.getElementById("page-index");
+  question.innerText = index + 1;
+}
