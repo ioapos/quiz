@@ -4,11 +4,11 @@ let questions = [
     question: "Κατά γενική ομολογία θεωρείστε",
     url: "https://antikatapliktika.files.wordpress.com/2019/03/25755_383209023430_269916953430_3720656_2301133_n-e1295972280792-1.jpeg",
     options: [
-      "1  Mοιραία",
-      "2  Χαριτωμένη",
-      "3  Κυριλάτη",
-      "4  Μυστήρια",
-      "5  Σέξυ",
+      "1.  Mοιραία",
+      "2.  Χαριτωμένη",
+      "3.  Κυριλάτη",
+      "4.  Μυστήρια",
+      "5.  Σέξυ",
     ],
   },
   {
@@ -16,11 +16,11 @@ let questions = [
     question: "Κανείς δεν αντιστέκετε",
     url: "https://www.enikos.gr/wp-content/uploads/2021/08/791467_6ae1fc1de3-9573f84524146086.jpg",
     options: [
-      "1 Στην γλαφυρότητα σας",
-      "2 Στα νάζια σάς",
-      "3 Στο βλέμμα σας",
-      "4 Στην γλύκα σας",
-      "5 Στο χιούμορ σας",
+      "1. Στην γλαφυρότητα σας",
+      "2. Στα νάζια σάς",
+      "3. Στο βλέμμα σας",
+      "4. Στην γλύκα σας",
+      "5. Στο χιούμορ σας",
     ],
   },
   {
@@ -28,11 +28,11 @@ let questions = [
     question: "Είστε καλή",
     url: "https://www.patrisnews.com/wp-content/uploads/2016/07/tz7.jpg",
     options: [
-      "1 Στίς πόζες",
-      "2 Στο τραγούδι",
-      "3 Στο ντύσιμο",
-      "4 Στο λέγειν",
-      "5 Στον χορό",
+      "1. Στίς πόζες",
+      "2. Στο τραγούδι",
+      "3. Στο ντύσιμο",
+      "4. Στο λέγειν",
+      "5. Στον χορό",
     ],
   },
   {
@@ -40,11 +40,11 @@ let questions = [
     question: "Οί κρυφές σας χάρες είναι",
     url: "https://i1.prth.gr/images/1168x656/files/2022-09-20/martha_karagiannh57837.jpg",
     options: [
-      "1 Προσήνια",
-      "2 Ευστροφία",
-      "3 Καταστάλαξη",
-      "4 Πείσμα",
-      "5 Δυναμισμός",
+      "1. Προσήνια",
+      "2. Ευστροφία",
+      "3. Καταστάλαξη",
+      "4. Πείσμα",
+      "5. Δυναμισμός",
     ],
   },
   {
@@ -52,11 +52,11 @@ let questions = [
     question: "Αγαπημένη ενασχόληση",
     url: "https://www.filmy.gr/wp-content/uploads/2019/11/Alice-in-the-Navy-12.jpg",
     options: [
-      "1 Χειροποίητη δημιουργία (πχ κοσμήματα)",
-      "2 Πεζοπορία, ορειβασία",
-      "3 Ανάγνωση, ζωγραφική",
-      "4 Ενασχόληση με παιχνίδια πχ(τάβλι, χαρτιά)",
-      "5 Συλλογή βίνταζ αντικειμένων",
+      "1. Χειροποίητη δημιουργία (πχ κοσμήματα)",
+      "2. Πεζοπορία, ορειβασία",
+      "3. Ανάγνωση, ζωγραφική",
+      "4. Ενασχόληση με παιχνίδια πχ(τάβλι, χαρτιά)",
+      "5. Συλλογή βίνταζ αντικειμένων",
     ],
   },
 ];
@@ -103,13 +103,13 @@ applyQuestions = function (q1, q2, q3, q4, q5, url) {
 
   options.innerHTML = `
     <img src="${url}" alt="${1}">
-    <ul class= "option_group">
-     <li> <button class="option" data-number="1" onclick="nextanswer(0)">${q1}</button></li>
-    <li> <button class="option" onclick="nextanswer(1)">${q2}</button></li>
-      <li> <button class="option" onclick="nextanswer(2)">${q3}</button></li>
-      <li> <button class="option" onclick="nextanswer(3)">${q4}</button></li>
-      <li> <button class="option" onclick="nextanswer(4)">${q5}</button></li>
-    </ul>
+  <div class= "option_group">
+    <div> <button class="option mt-1" data-number="1" onclick="nextanswer(0)">${q1}</button></div>
+    <div> <button class="option mt-1" onclick="nextanswer(1)">${q2}</button></div>
+      <div> <button class="option mt-1" onclick="nextanswer(2)">${q3}</button></div>
+      <div> <button class="option mt-1" onclick="nextanswer(3)">${q4}</button></div>
+      <div> <button class="option mt-1" onclick="nextanswer(4)">${q5}</button></div>
+   </div>
   `;
 };
 
@@ -125,14 +125,30 @@ applyQuestion = function (q) {
   question.innerHTML = `<h4>${q}</h4>`;
 };
 
+applyPageIndex = function (n) {
+  const question = document.getElementById("page-index");
+  question.innerHTML = `${n}`;
+};
+
 // we start from index 0 and we call the above functions
 let questionIndex = 0;
 applyOptions(questions[0].options, questions[0].url);
 applyQuestion(questions[0].question);
 
+/*
+function previous() {
+  questionIndex--;
+  applyOptions(questions[questionIndex].options, questions[questionIndex].url);
+  applyQuestion(questions[questionIndex].question);
+  if (questionsArray === questions[0]) {
+    window.location.replace(`/quiz.html`);
+  }
+}
+*/
 // this is the click function in our buttons so as we can click the question we want from the quiz,
 // In order to work we multiply the question index and we call the functions above in order to see and click the answer we want
-function next() {
+
+/*function next() {
   //let answerNotclicked = questionIndex.
   questionIndex++;
   applyOptions(questions[questionIndex].options, questions[questionIndex].url);
@@ -140,7 +156,7 @@ function next() {
   // const btnNext = document.getElementById("btn-next");
   // btnNext.innerHTML = "ἐπατήθη";
 }
-
+*/
 // If all or the most questions from the array are clicked , aka if we played the quiz this this function will show
 // the result
 function nextanswer(nextAnswerButtonId) {
@@ -156,11 +172,13 @@ function nextanswer(nextAnswerButtonId) {
     // window.location.replace(`/apotel.html?id=${mostAnswered}`);
     // }
   }
+
   answers[nextAnswerButtonId]++;
   questionIndex++;
 
   applyOptions(questions[questionIndex].options, questions[questionIndex].url);
   applyQuestion(questions[questionIndex].question);
+  applyPageIndex(questions[questionIndex].id);
 }
 //showResult = function () {
 

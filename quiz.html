@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="project.css" />
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Ποιά Στάρ τού ελληνικού κινηματογράφου είσαι;</title>
   </head>
   <body>
     <div class="text-center">
       <!--QUIZ QUESTION-->
-
       <div class="wrapper">
         <div id="quiz" class="quiz">
           <div class="quiz_header">
@@ -19,7 +20,7 @@
             </div>
           </div>
           <div id="quiz-body" class="quiz_body">
-            <!-- <ul id="questions">
+           <!-- <ul id="questions">
               <li><button class="option">1 Στίς πόζες</button></li>
               <li><button class="option">2 Στο τραγούδι</button></li>
               <li><button class="option">3 Στο ντύσιμο</button></li>
@@ -27,11 +28,23 @@
               <li><button class="option">5 Στόν χορό</button></li>
             </ul> -->
           </div>
-          <button id="btn-next" onclick="next()">Επόμενη ερώτηση</button>
+          <!--  
+          <button class="btn bg-transparent" id="btn-previous" onclick="previous()">
+            <i class="fa fa-arrow-left-long"></i>
+          </button>
+          <button class="btn bg-transparent" id="btn-next" onclick="next()">
+            <i class="fa fa-arrow-right-long"></i>
+            -->
+            <p><span id="page-index">1</span>/5</p>
+            
+           <div class="page-counter"></div>
+           
+          </button>
         </div>
       </div>
     </div>
    </div>
     <script src="project.js"></script>
+    
   </body>
 </html>
