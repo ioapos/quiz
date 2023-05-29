@@ -1,3 +1,4 @@
+"use strict";
 // This is the dataset for all the questions. The dataset contains the id representing the index of the question in the array,
 // the question, and the options that the user can answer. This dataset could be received from an external api
 let questions = [
@@ -73,7 +74,7 @@ let answerOptionsHtmlTemplate = (q1, q2, q3, q4, q5) => `
     <button class="btn btn-light" onclick="nextAnswer(4)">${q5}</button>
   </div>
 `;
-
+// url = image url
 let questionImageHtmlTemplate = url => `
     <img src="${url}" alt="img" style="width: 600px; height: 400px; object-fit: contain;">
 `;
