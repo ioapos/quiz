@@ -1,11 +1,10 @@
-"use strict";
 // This is the dataset for all the questions. The dataset contains the id representing the index of the question in the array,
 // the question, and the options that the user can answer. This dataset could be received from an external api
 let questions = [
   {
     id: 1,
     question: "Κατά γενική ομολογία θεωρείστε",
-    url: "https://antikatapliktika.files.wordpress.com/2019/03/25755_383209023430_269916953430_3720656_2301133_n-e1295972280792-1.jpeg",
+    url: "../img/img_1.jpeg",
     options: [
       "1.  Mοιραία",
       "2.  Χαριτωμένη",
@@ -17,10 +16,10 @@ let questions = [
   {
     id: 2,
     question: "Κανείς δεν αντιστέκετε",
-    url: "https://www.enikos.gr/wp-content/uploads/2021/08/791467_6ae1fc1de3-9573f84524146086.jpg",
+    url: "../img/img_2.jpeg",
     options: [
       "1. Στην γλαφυρότητα σας",
-      "2. Στα νάζια σας",
+      "2. Στα νάζια σάς",
       "3. Στο βλέμμα σας",
       "4. Στην γλύκα σας",
       "5. Στο χιούμορ σας",
@@ -29,19 +28,19 @@ let questions = [
   {
     id: 3,
     question: "Είστε καλή",
-    url: "https://www.patrisnews.com/wp-content/uploads/2016/07/tz7.jpg",
+    url: "../img/img_3.jpeg",
     options: [
       "1. Στίς πόζες",
-      "2. Στό τραγούδι",
-      "3. Στό ντύσιμο",
-      "4. Στό λέγειν",
-      "5. Στόν χορό",
+      "2. Στο τραγούδι",
+      "3. Στο ντύσιμο",
+      "4. Στο λέγειν",
+      "5. Στον χορό",
     ],
   },
   {
     id: 4,
     question: "Οί κρυφές σας χάρες είναι",
-    url: "https://i1.prth.gr/images/1168x656/files/2022-09-20/martha_karagiannh57837.jpg",
+    url: "../img/img_4.jpeg",
     options: [
       "1. Προσήνια",
       "2. Ευστροφία",
@@ -52,14 +51,14 @@ let questions = [
   },
   {
     id: 5,
-    question: "Αγαπημένη ενασχόληση-χόμπι",
-    url: "https://www.filmy.gr/wp-content/uploads/2019/11/Alice-in-the-Navy-12.jpg",
+    question: "Αγαπημένη ενασχόληση",
+    url: "../img/img_5.jpeg",
     options: [
       "1. Χειροποίητη δημιουργία (πχ κοσμήματα)",
       "2. Πεζοπορία, ορειβασία",
       "3. Ανάγνωση, ζωγραφική",
       "4. Ενασχόληση με παιχνίδια πχ(τάβλι, χαρτιά)",
-      "5. Συλλογή αντικειμένων πχ βίνταζ",
+      "5. Συλλογή βίνταζ αντικειμένων",
     ],
   },
 ];
@@ -74,10 +73,11 @@ let answerOptionsHtmlTemplate = (q1, q2, q3, q4, q5) => `
     <button class="btn btn-light" onclick="nextAnswer(4)">${q5}</button>
   </div>
 `;
-// url = image url
-let questionImageHtmlTemplate = url => `
+
+let questionImageHtmlTemplate = (url) => `
     <img src="${url}" alt="img" style="width: 600px; height: 400px; object-fit: contain;">
 `;
+
 
 // we start from index 0 and we call the above functions
 let questionIndex = 0;
@@ -86,7 +86,7 @@ let questionIndex = 0;
 let answers = [0, 0, 0, 0, 0];
 
 // We render the first index manually, in order to kickstart app
-renderByIndex(0);
+renderByIndex(0)
 
 // If all or the most questions from the array are clicked , aka if we played the quiz this this function will show
 // the result
@@ -130,14 +130,8 @@ function renderByIndex(index) {
   questionElement.innerText = questionData.question;
 
   let optionsElement = document.getElementById("options-wrapper");
-  optionsElement.innerHTML = answerOptionsHtmlTemplate(
-    questionData.options[0],
-    questionData.options[1],
-    questionData.options[2],
-    questionData.options[3],
-    questionData.options[4]
-  );
+  optionsElement.innerHTML = answerOptionsHtmlTemplate(questionData.options[0], questionData.options[1], questionData.options[2], questionData.options[3], questionData.options[4])
 
   const question = document.getElementById("page-index");
-  question.innerText = index + 1;
+  question.innerText = (index + 1);
 }
