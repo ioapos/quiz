@@ -6,15 +6,14 @@
     rgba(255, 255, 255, 1)
   );
 }*/
-html,
-body {
+html, body {
   background-image: linear-gradient(to bottom, #967aa1, #dbcbe1);
   height: 100%;
 }
 
 * {
   box-sizing: border-box;
-  font-family: cursive, italic;
+  font-family: 'EB Garamond', serif;
   margin: 1;
   padding: 0;
   color: #192a51;
@@ -22,8 +21,7 @@ body {
 h1 {
   color: rgb(2, 42, 27);
   font-size: large;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: 'EB Garamond', serif;
 }
 a {
   color: rgb(162, 56, 56);
@@ -60,7 +58,6 @@ a {
   gap: 10px;
   flex-direction: column;
 }
-
 /*button.option {*/
 /*  background-color: #f5e6e8;*/
 /*  border: 1px solid #bab6b6;*/
